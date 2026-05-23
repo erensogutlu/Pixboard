@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminPaneli.css';
+import { API_URL } from '../config';
 
 export default function AdminPaneli() {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ export default function AdminPaneli() {
       }
 
       try {
-        const yanit = await fetch('/api/auth/profil', {
+        const yanit = await fetch(`${API_URL}/api/auth/profil`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (yanit.ok) {
@@ -97,7 +98,7 @@ export default function AdminPaneli() {
     istatistikYukleniyorAyarla(true);
     try {
       const token = localStorage.getItem('pixboard_token');
-      const yanit = await fetch('/api/admin/istatistikler', {
+      const yanit = await fetch(`${API_URL}/api/admin/istatistikler`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (yanit.ok) {
@@ -118,7 +119,7 @@ export default function AdminPaneli() {
     kullaniciYukleniyorAyarla(true);
     try {
       const token = localStorage.getItem('pixboard_token');
-      const yanit = await fetch('/api/admin/kullanicilar', {
+      const yanit = await fetch(`${API_URL}/api/admin/kullanicilar`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (yanit.ok) {
@@ -139,7 +140,7 @@ export default function AdminPaneli() {
     tahtaYukleniyorAyarla(true);
     try {
       const token = localStorage.getItem('pixboard_token');
-      const yanit = await fetch('/api/admin/tahtalar', {
+      const yanit = await fetch(`${API_URL}/api/admin/tahtalar`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (yanit.ok) {
@@ -163,7 +164,7 @@ export default function AdminPaneli() {
     const token = localStorage.getItem('pixboard_token');
     
     try {
-      const yanit = await fetch(`/api/admin/kullanicilar/${duzenlenenKullanici.id}`, {
+      const yanit = await fetch(`${API_URL}/api/admin/kullanicilar/${duzenlenenKullanici.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -197,7 +198,7 @@ export default function AdminPaneli() {
     const token = localStorage.getItem('pixboard_token');
 
     try {
-      const yanit = await fetch(`/api/admin/tahtalar/${duzenlenenTahta.id}`, {
+      const yanit = await fetch(`${API_URL}/api/admin/tahtalar/${duzenlenenTahta.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -241,7 +242,7 @@ export default function AdminPaneli() {
     silinecekIsimAyarla('');
 
     try {
-      const url = tip === 'kullanici' ? `/api/admin/kullanicilar/${id}` : `/api/admin/tahtalar/${id}`;
+      const url = tip === 'kullanici' ? `${API_URL}/api/admin/kullanicilar/${id}` : `${API_URL}/api/admin/tahtalar/${id}`;
       const yanit = await fetch(url, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }

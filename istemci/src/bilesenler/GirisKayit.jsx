@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { API_URL } from '../config'
 import './GirisKayit.css'
 
 export default function GirisKayit({ onClose, onAuthSuccess }) {
@@ -41,7 +42,7 @@ export default function GirisKayit({ onClose, onAuthSuccess }) {
     const endpoint = aktifTab === 'giris' ? '/api/auth/giris' : '/api/auth/kayit'
 
     try {
-      const yanit = await fetch(endpoint, {
+      const yanit = await fetch(`${API_URL}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ kullaniciAdi: kullaniciAdi.trim(), sifre }),

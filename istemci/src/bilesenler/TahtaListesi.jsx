@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import GirisKayit from "./GirisKayit";
+import { API_URL } from "../config";
 import "./TahtaListesi.css";
 
 // tahta listesi
@@ -32,7 +33,7 @@ export default function TahtaListesi() {
 			return;
 		}
 		try {
-			const yanit = await fetch("/api/auth/profil", {
+			const yanit = await fetch(`${API_URL}/api/auth/profil`, {
 				headers: { Authorization: `Bearer ${token}` },
 			});
 			if (yanit.ok) {
@@ -62,7 +63,7 @@ export default function TahtaListesi() {
 			if (token) {
 				headers["Authorization"] = `Bearer ${token}`;
 			}
-			const yanit = await fetch("/api/tahtalar", { headers });
+			const yanit = await fetch(`${API_URL}/api/tahtalar`, { headers });
 			if (yanit.ok) {
 				const veri = await yanit.json();
 				tahtalariAyarla(veri);
@@ -110,7 +111,7 @@ export default function TahtaListesi() {
 				headers["Authorization"] = `Bearer ${token}`;
 			}
 
-			const yanit = await fetch("/api/tahtalar", {
+			const yanit = await fetch(`${API_URL}/api/tahtalar`, {
 				method: "POST",
 				headers,
 				body: JSON.stringify({
@@ -185,7 +186,7 @@ export default function TahtaListesi() {
 				headers["Authorization"] = `Bearer ${token}`;
 			}
 
-			const yanit = await fetch(`/api/tahtalar/${id}`, {
+			const yanit = await fetch(`${API_URL}/api/tahtalar/${id}`, {
 				method: "DELETE",
 				headers,
 			});

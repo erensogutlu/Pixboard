@@ -10,6 +10,7 @@ import OzellikPaneli from './bilesenler/OzellikPaneli'
 import UstBar from './bilesenler/UstBar'
 import KatilimDialogu from './bilesenler/KatilimDialogu'
 import AdminPaneli from './bilesenler/AdminPaneli'
+import { API_URL } from './config'
 import './App.css'
 
 // pano editör bileşeni
@@ -111,7 +112,7 @@ function PanoEditor() {
       if (token) headers['Authorization'] = `Bearer ${token}`
       if (sifre) headers['X-Room-Password'] = sifre
 
-      const yanit = await fetch(`/api/tahtalar/${tahtaId}`, { headers })
+      const yanit = await fetch(`${API_URL}/api/tahtalar/${tahtaId}`, { headers })
 
       if (yanit.status === 404) {
         tahtaBulunamadiAyarla(true)
