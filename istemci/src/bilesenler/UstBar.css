@@ -1,0 +1,267 @@
+.ust-bar {
+	position: fixed;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 100;
+	border-radius: var(--yaricap-buyuk);
+	padding: 0 16px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-width: 600px;
+	max-width: 90vw;
+	animation: ust-bar-belirme 0.4s ease;
+}
+
+@keyframes ust-bar-belirme {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+/* sol kısım */
+.ust-bar-sol {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-shrink: 0;
+}
+
+.logo-alani {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.logo-simge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	filter: drop-shadow(0 0 8px rgba(124, 92, 255, 0.3));
+}
+
+.logo-metin {
+	font-size: 16px;
+	font-weight: 700;
+	background: linear-gradient(135deg, #7c5cff, #00d4aa);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	letter-spacing: -0.02em;
+}
+
+.ayirici-dikey {
+	width: 1px;
+	height: 20px;
+	background: var(--kenar-rengi);
+}
+
+.tahta-basligi {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--metin-ikincil);
+	max-width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* bağlantı durumu */
+.baglanti-durumu {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 11px;
+	color: var(--metin-ucuncul);
+}
+
+.baglanti-noktasi {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--metin-ucuncul);
+	transition: all var(--gecis-normal);
+}
+
+.baglanti-durumu.bagli .baglanti-noktasi {
+	background: var(--basari);
+	box-shadow: 0 0 8px rgba(68, 255, 136, 0.4);
+	animation: nabiz 2s ease infinite;
+}
+
+.baglanti-durumu.kopuk .baglanti-noktasi {
+	background: var(--tehlike);
+}
+
+/* orta kısım */
+.ust-bar-orta {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px;
+	background: var(--arkaplan-ucuncul);
+	border-radius: var(--yaricap-kucuk);
+	border: 1px solid var(--cam-kenar);
+}
+
+.yakinlastirma-dugme {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	color: var(--metin-ikincil);
+	transition: all var(--gecis-hizli);
+}
+
+.yakinlastirma-dugme:hover {
+	background: var(--arkaplan-dorduncul);
+	color: var(--metin-birincil);
+}
+
+.yakinlastirma-yuzde {
+	min-width: 44px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+	font-family: "JetBrains Mono", monospace;
+	color: var(--metin-birincil);
+}
+
+.sigdir-dugme {
+	margin-left: 2px;
+	border-left: 1px solid var(--kenar-rengi);
+	padding-left: 2px;
+}
+
+/* sağ kısım */
+.ust-bar-sag {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+.islem-grubu {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	padding: 4px;
+	background: var(--arkaplan-ucuncul);
+	border-radius: var(--yaricap-kucuk);
+	border: 1px solid var(--cam-kenar);
+}
+
+.islem-dugme {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 6px;
+	color: var(--metin-ikincil);
+	transition: all var(--gecis-hizli);
+}
+
+.islem-dugme:hover:not(:disabled) {
+	background: var(--arkaplan-dorduncul);
+	color: var(--metin-birincil);
+}
+
+.islem-dugme.cikis-dugme:hover {
+	background: rgba(255, 68, 102, 0.15);
+	color: var(--tehlike);
+}
+
+.islem-dugme:disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+
+/* kullanıcı avatarları */
+.kullanici-listesi {
+	display: flex;
+	align-items: center;
+	margin-left: 4px;
+}
+
+.kullanici-avatar {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 700;
+	color: #ffffff;
+	border: 2px solid var(--arkaplan-birincil);
+	margin-left: -6px;
+	cursor: default;
+	transition: all var(--gecis-hizli);
+}
+
+.kullanici-avatar:first-child {
+	margin-left: 0;
+}
+
+.kullanici-avatar:hover {
+	transform: scale(1.15);
+	z-index: 10 !important;
+}
+
+.kullanici-avatar.daha-fazla {
+	background: var(--arkaplan-dorduncul);
+	color: var(--metin-ikincil);
+	font-size: 10px;
+	font-weight: 600;
+}
+
+/* mobil görünüm */
+@media (max-width: 768px) {
+	.ust-bar {
+		min-width: auto;
+		width: calc(100% - 24px);
+		top: 8px;
+		padding: 0 10px;
+		height: 44px;
+		gap: 8px;
+	}
+
+	.logo-metin {
+		display: none;
+	}
+
+	.tahta-basligi {
+		max-width: 80px;
+		font-size: 12px;
+	}
+
+	.baglanti-durumu span {
+		display: none;
+	}
+
+	.yakinlastirma-yuzde {
+		min-width: 36px;
+		font-size: 11px;
+	}
+
+	.kullanici-listesi {
+		display: none;
+	}
+}
+
+@media (max-width: 500px) {
+	.ust-bar-orta {
+		display: none;
+	}
+}

@@ -1,0 +1,21 @@
+{
+  "name": "pixboard-sunucu",
+  "version": "1.0.0",
+  "description": "Pixboard gerçek zamanlı işbirlikçi beyaz tahta sunucusu",
+  "main": "sunucu.js",
+  "scripts": {
+    "start": "node sunucu.js",
+    "dev": "node --watch sunucu.js",
+    "sema": "node veritabani/sema.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.13.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^10.0.0"
+  }
+}

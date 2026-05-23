@@ -1,0 +1,139 @@
+.dialog-arkaplan {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: belirme 0.2s ease;
+}
+
+.dialog-icerik {
+	width: 400px;
+	max-width: 90vw;
+	border-radius: var(--yaricap-buyuk);
+	padding: 28px;
+	position: relative;
+	animation: yukari-kayma 0.3s ease;
+}
+
+.dialog-kapat {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--yaricap-kucuk);
+	color: var(--metin-ucuncul);
+	transition: all var(--gecis-hizli);
+}
+
+.dialog-kapat:hover {
+	background: var(--arkaplan-ucuncul);
+	color: var(--metin-birincil);
+}
+
+.dialog-baslik-alani {
+	text-align: center;
+	margin-bottom: 24px;
+}
+
+.paylasim-simge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: 16px;
+	background: linear-gradient(
+		135deg,
+		rgba(124, 92, 255, 0.15),
+		rgba(0, 212, 170, 0.15)
+	);
+	color: var(--vurgu-rengi);
+	margin-bottom: 16px;
+}
+
+.dialog-baslik {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+.dialog-aciklama {
+	font-size: 13px;
+	color: var(--metin-ikincil);
+	line-height: 1.5;
+}
+
+/* paylaşım kodu */
+.paylasim-kod-alani {
+	margin-bottom: 16px;
+}
+
+.kod-satiri {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 16px;
+	background: var(--arkaplan-ucuncul);
+	border: 1px solid var(--kenar-rengi);
+	border-radius: var(--yaricap-orta);
+}
+
+.kod-metin {
+	flex: 1;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 13px;
+	color: var(--vurgu-parlak);
+	word-break: break-all;
+	user-select: all;
+}
+
+.kopyala-dugme {
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--yaricap-kucuk);
+	color: var(--metin-ikincil);
+	flex-shrink: 0;
+	transition: all var(--gecis-hizli);
+}
+
+.kopyala-dugme:hover {
+	background: var(--arkaplan-dorduncul);
+	color: var(--metin-birincil);
+}
+
+/* bağlantı kopyala butonu */
+.baglanti-dugme {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 12px 20px;
+	background: var(--vurgu-rengi);
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: var(--yaricap-orta);
+	transition: all var(--gecis-normal);
+}
+
+.baglanti-dugme:hover {
+	background: var(--vurgu-parlak);
+	box-shadow: 0 4px 16px rgba(124, 92, 255, 0.4);
+	transform: translateY(-1px);
+}

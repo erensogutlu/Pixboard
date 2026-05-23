@@ -1,0 +1,113 @@
+.arac-cubugu {
+	position: fixed;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 100;
+	border-radius: var(--yaricap-buyuk);
+	padding: 8px;
+	animation: arac-cubugu-belirme-sol 0.4s ease;
+}
+
+@keyframes arac-cubugu-belirme-sol {
+	from {
+		opacity: 0;
+		transform: translateX(-20px) translateY(-50%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0) translateY(-50%);
+	}
+}
+
+.arac-listesi {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.arac-dugme {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--yaricap-orta);
+	color: var(--metin-ikincil);
+	position: relative;
+	transition: all var(--gecis-hizli);
+}
+
+.arac-dugme:hover {
+	background: var(--arkaplan-ucuncul);
+	color: var(--metin-birincil);
+	transform: scale(1.05);
+}
+
+.arac-dugme.aktif {
+	background: var(--vurgu-rengi);
+	color: #ffffff;
+	box-shadow: 0 0 16px rgba(124, 92, 255, 0.4);
+}
+
+.arac-dugme.aktif:hover {
+	background: var(--vurgu-parlak);
+	transform: scale(1.05);
+}
+
+/* tooltip sağ taraf — araç çubuğu için */
+.arac-dugme.ipucu-sag::after {
+	bottom: auto;
+	left: calc(100% + 12px);
+	top: 50%;
+	transform: translateY(-50%) scale(0.8);
+}
+
+.arac-dugme.ipucu-sag:hover::after {
+	opacity: 1;
+	transform: translateY(-50%) scale(1);
+}
+
+/* ayırıcı */
+.arac-ayirici {
+	width: 24px;
+	height: 1px;
+	background: var(--kenar-rengi);
+	margin: 4px auto;
+}
+
+/* mobil görünüm */
+@media (max-width: 768px) {
+	.arac-cubugu {
+		left: 50%;
+		top: auto;
+		bottom: 16px;
+		transform: translateX(-50%);
+		animation: arac-cubugu-belirme-mobil 0.4s ease;
+	}
+
+	@keyframes arac-cubugu-belirme-mobil {
+		from {
+			opacity: 0;
+			transform: translateX(-50%) translateY(20px) scale(0.95);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(-50%) translateY(0) scale(1);
+		}
+	}
+
+	.arac-listesi {
+		flex-direction: row;
+		gap: 2px;
+	}
+
+	.arac-dugme {
+		width: 36px;
+		height: 36px;
+	}
+
+	.arac-dugme.ipucu-sag::after {
+		display: none;
+	}
+}

@@ -1,0 +1,229 @@
+/* pixboard ana uygulama stilleri */
+
+.tahta-gorunumu {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+
+/* sol araç çubuğu yerleşimi */
+.tahta-gorunumu .arac-cubugu {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  z-index: 100;
+  border-radius: var(--yaricap-orta);
+}
+
+/* sağ özellikler paneli yerleşimi */
+.tahta-gorunumu .ozellik-paneli {
+  position: absolute;
+  top: 84px;
+  right: 16px;
+  bottom: 16px;
+  width: 240px;
+  z-index: 100;
+  border-radius: var(--yaricap-orta);
+  overflow-y: auto;
+}
+
+/* mobil uyumluluk */
+@media (max-width: 768px) {
+  .tahta-gorunumu .ust-bar {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    width: auto;
+    transform: none;
+    height: 44px;
+    padding: 0 10px;
+  }
+
+  .tahta-gorunumu .arac-cubugu {
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 90vw;
+  }
+
+  .tahta-gorunumu .ozellik-paneli {
+    top: auto;
+    bottom: 80px;
+    right: 8px;
+    left: 8px;
+    width: auto;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px 16px;
+  }
+
+  .tahta-gorunumu .ozellik-paneli .panel-baslik {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--kenar-rengi);
+    padding-right: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tahta-gorunumu .ozellik-paneli .panel-bolum {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .tahta-gorunumu .ozellik-paneli .panel-bolum:last-child {
+    min-width: 130px;
+  }
+}
+
+/* Şifre Giriş Sayfası */
+.sifre-giris-sayfa {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sifre-kutu {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: var(--yaricap-buyuk);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30, 30, 50, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 10;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sifre-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.sifre-logo h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin: 0;
+}
+
+.sifre-baslik h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.sifre-baslik p {
+  font-size: 14px;
+  color: var(--metin-ikincil);
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.sifre-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sifre-girdi {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.sifre-girdi:focus {
+  border-color: #7c5cff;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
+}
+
+.sifre-eylemler {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.sifre-buton {
+  flex: 1;
+  height: 46px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.sifre-buton.iptal {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--kenar-rengi);
+  color: var(--metin-ikincil);
+}
+
+.sifre-buton.iptal:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--metin-birincil);
+}
+
+.sifre-buton.onayla {
+  background: linear-gradient(135deg, #7c5cff 0%, #00d4aa 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(124, 92, 255, 0.2);
+}
+
+.sifre-buton.onayla:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.3);
+}
+
+.sifre-hata {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  color: #ff6b6b;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+  animation: shake 0.4s ease;
+}
