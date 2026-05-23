@@ -35,6 +35,11 @@ uygulama.get("/api/saglik", (istek, yanit) => {
 	yanit.json({ durum: "çalışıyor", zaman: new Date().toISOString() });
 });
 
+// ana sayfa durum kontrolü
+uygulama.get("/", (istek, yanit) => {
+	yanit.send("<h1>Pixboard API Sunucusu</h1><p>Sunucu aktif ve calisiyor. Saglik kontrolu icin <a href='/api/saglik'>/api/saglik</a> adresini ziyaret edebilirsiniz.</p>");
+});
+
 // http sunucusu
 const sunucu = http.createServer(uygulama);
 
